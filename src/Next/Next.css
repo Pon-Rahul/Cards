@@ -1,0 +1,10 @@
+.back{
+    width: 120px;
+}
+
+.top{
+    display: flex;
+    flex-direction: column;
+    gap: 450px;
+    align-items: flex-start;
+}

@@ -1,0 +1,57 @@
+.centre_img {
+  z-index: 0;
+  display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 100px;
+}
+
+.monkey_img {
+  width: 65%;
+}
+
+.chat_box {
+    display: block;
+    width: 110%;
+}
+
+.yellowbutton{
+width: 300px;
+cursor: pointer;
+}
+
+.position{
+   z-index: 0;
+   position: absolute;
+}
+.text {
+  font-family: Nunito;
+  font-size: 44px;
+  font-weight: 400;
+  color: #11aec6;
+  position: relative;
+  z-index: 1;
+  margin-top: 32px;
+  margin-left: 52px;
+}
+
+.container {
+    position: relative;
+    display: inline-block; /* Ensures the container fits the image size */
+}
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.settings {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 120px;
+}

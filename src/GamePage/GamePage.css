@@ -1,0 +1,49 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .grid-item {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .flexbox{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.game_back{
+  width: 120px;
+}
+
+.remaining{
+  font-family: Nunito;
+  position: absolute;
+  top: 28px;
+  right: 36px;
+  font-size: 21px;
+  color: #11aec6;
+  font-weight: 600;
+}
+.reload{
+    width: 200px;
+    cursor: pointer;
+}
+
+.reload_flex{
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.points_box{
+  height: 125px;
+  position: relative;
+  z-index: -1;
+}
+.game_flex{
+  display: flex;
+  margin-left: 50px;
+  justify-content: space-between;
+}

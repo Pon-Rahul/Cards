@@ -1,0 +1,57 @@
+.box_flex{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.boxsize{
+    width: 90%;
+    position: relative;
+}
+
+.textflex{
+    display: flex;
+}
+
+.text_space{
+  margin-left: 30px;
+}
+
+.box_content{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: absolute;
+    top: 100px;
+    align-items: flex-end;
+}
+
+.third_box_content{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 120px;
+    align-items: center;
+    gap: 10px;
+}
+
+.start_flex{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
+.num_box{
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    left: 4px;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+}
+
