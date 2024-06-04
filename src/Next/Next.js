@@ -15,6 +15,7 @@ const NextPage = () =>{
     const nextHandler = () => {
         navigate('/yes');
     };
+    
     return(
         <div>
         <BackGround />
