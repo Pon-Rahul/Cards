@@ -1,16 +1,2 @@
-.blackground{
-    background: linear-gradient(0deg, rgba(68, 68, 68, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%);
-    z-index: 1;
-    position: fixed;
-    width: 100%;
-    height: 800px;
-}
 
-.its_match{
-    color: rgb(255, 94, 0);
-    font-size: 90px;
-    font-weight: 700;
-    font-family: cursive;
-    position: relative;
-    z-index: 1;
-}
+

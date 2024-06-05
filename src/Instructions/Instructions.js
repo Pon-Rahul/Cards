@@ -5,15 +5,15 @@ import blueheart from "../Assets/blueheart.svg";
 import apple from "../Assets/apple.svg";
 import pinkcard from "../Assets/Pinkcard.svg";
 import box from "../Assets/whitebox.svg";
-import retry from "../Assets/retry.svg"
+import retry from "../Assets/retry.svg";
 import text from "../Assets/text.svg";
-import same from "../Assets/same.svg"
-import pinktext from "../Assets/textpink.svg"
-import start from "../Assets/start.svg"
-import orageback from "../Assets/orangeback.svg"
-import threeback from "../Assets/threeback.svg"
-import match from "../Assets/itsamatch.svg"
-import textone from "../Assets/fruittext.svg"
+import same from "../Assets/same.svg";
+import pinktext from "../Assets/textpink.svg";
+import start from "../Assets/start.svg";
+import orageback from "../Assets/orangeback.svg";
+import threeback from "../Assets/threeback.svg";
+import match from "../Assets/itsamatch.svg";
+import textone from "../Assets/fruittext.svg";
 import greentexttwo from "../Assets/greentexttwo.svg";
 import two from "../Assets/numbertwo.svg";
 import { useNavigate } from "react-router";
@@ -23,7 +23,7 @@ const Instruction = () => {
   const navigate = useNavigate();
 
   const nextHandler = () => {
-      navigate('/game');
+    navigate("/game");
   };
   return (
     <div>
@@ -33,7 +33,7 @@ const Instruction = () => {
           src={backbtn}
           alt="back"
           className="game_back"
-          onClick={() => navigate('/yes')}
+          onClick={() => navigate("/yes")}
         />
       </div>
       <div className="box_flex">
@@ -107,8 +107,13 @@ const Instruction = () => {
         </div>
       </div>
       <div className="start_flex">
-        <img src={start} alt='button' className="yellowbutton" onClick={() => nextHandler()}/>
-        </div>
+        <img
+          src={start}
+          alt="button"
+          className="yellowbutton"
+          onClick={() => nextHandler()}
+        />
+      </div>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import orange from "../Assets/orangefruit.svg";
 import grapes from "../Assets/grapes.svg";
 import strawberry from "../Assets/strawberry.svg";
 import carrot from "../Assets/carrot.svg";
+import score from "../Assets/scorebanana.svg";
 import watermelon from "../Assets/watermelon.svg";
 import lettera from "../Assets/Lettercard.svg";
 import lettero from "../Assets/letter-o.svg";
@@ -24,17 +25,18 @@ const GamePage = () => {
   const navigate = useNavigate();
 
   const nextHandler = () => {
-    navigate('/instruction');
+    navigate("/instruction");
   };
 
   const [remaining, setRemaining] = useState(6);
   const [visible, setVisible] = useState(Array(6).fill(false));
   const [letterShow, setLetterShow] = useState(Array(6).fill(false));
   const [arr, setArr] = useState([]);
-  const [rightArr , setRightArr] = useState([]);
+  const [rightArr, setRightArr] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
   const [firstClick, setFirstClick] = useState(true);
   const [matchMessage, setMatchMessage] = useState(false);
+  const [scoreBar, setScoreBar] = useState(0);
   const [tryAgain, setTryAgain] = useState(false);
 
   const initialArr = [
@@ -77,13 +79,17 @@ const GamePage = () => {
 
   useEffect(() => {
     if (selectedCards.length === 2) {
-      console.log(selectedCards)
       const [card1, card2] = selectedCards;
       if (card1.start === card2.start) {
         setMatchMessage(true);
+        setScoreBar(scoreBar + 1);
         setTimeout(() => {
-          const arrNew = arr.filter((card) => card.id !== card1.id && card.id !== card2.id);
-          const rightArrNew = rightArr.filter((card) => card.id !== card1.id && card.id !== card2.id);
+          const arrNew = arr.filter(
+            (card) => card.id !== card1.id && card.id !== card2.id
+          );
+          const rightArrNew = rightArr.filter(
+            (card) => card.id !== card1.id && card.id !== card2.id
+          );
           setArr(arrNew);
           setRightArr(rightArrNew);
           const updatedVisible = visible.map((value, index) =>
@@ -96,7 +102,7 @@ const GamePage = () => {
           setLetterShow(updatedLetterShow);
           setSelectedCards([]);
           setMatchMessage(false);
-          if(arrNew.length===0 && rightArrNew.length===0){
+          if (arrNew.length === 0 && rightArrNew.length === 0) {
             navigate("/total");
             return;
           }
@@ -128,49 +134,74 @@ const GamePage = () => {
   return (
     <div>
       <BackGround />
-      <div className="game_flex">
-        <img
-          src={backbtn}
-          alt="back"
-          className="game_back"
-          onClick={() => navigate(-1)}
-        />
-        {matchMessage && <div className="its_match">It's a match!</div>}
-        {tryAgain && (
+      {matchMessage && (
+        <div className="black">
+          <div className="its_match">It's a match!</div>
+        </div>
+      )}
+      {tryAgain && (
+        <div className="black">
           <div className="reload_flex">
-            <div className="its_match">Try again</div>
+            <div className="try_again">Try again</div>
             <div>
-              <img src={nextbutton} alt="button" className="reload" onClick={nextHandler} />
+              <img
+                src={nextbutton}
+                alt="button"
+                className="reload"
+                onClick={nextHandler}
+              />
             </div>
           </div>
-        )}
-        <div>
-          <img src={points} alt="points" className="points_box" />
-          <div className="remaining">Remaining moves : {remaining}</div>
         </div>
-      </div>
-      <div className="flexbox">
-        <div className="grid-container">
-          {arr.map((item, index) => (
-            <div key={index} className="grid-item">
-              <img
-                src={visible[index] ? item.img : pinkcard}
-                alt="pink"
-                onClick={() => imageCardHandler(item, index)}
-              />
+      )}
+      <div className="game_page">
+        <div className="game_flex">
+          <img
+            src={backbtn}
+            alt="back"
+            className="game_back"
+            onClick={() => navigate("/instruction")}
+          />
+          <div className="total_bar">
+            <div className="img_flex">
+              <div className="bananas_txt">Total Bananas : {scoreBar}</div>
+              <img src={score} alt="banana" />
             </div>
-          ))}
+            <div id="score-bar-container">
+              <div
+                id="score-bar"
+                style={{ width: `${scoreBar * 16.7}%` }}
+              ></div>
+            </div>
+          </div>
+          <div className="chat">
+            <img src={points} alt="points" className="points_box" />
+            <div className="remaining">Remaining moves : {remaining}</div>
+          </div>
         </div>
-        <div className="grid-container">
-          {rightArr.map((item, index) => (
-            <div key={index} className="grid-item">
-              <img
-                src={letterShow[index] ? item.letter : bluecard}
-                alt="blue"
-                onClick={() => letterCardHandler(item, index)}
-              />
-            </div>
-          ))}
+        <div className="flexbox">
+          <div className="grid-container">
+            {arr.map((item, index) => (
+              <div key={index} className="grid-item">
+                <img
+                  src={visible[index] ? item.img : pinkcard}
+                  alt="pink"
+                  onClick={() => imageCardHandler(item, index)}
+                />
+              </div>
+            ))}
+          </div>
+          <div className="grid-container">
+            {rightArr.map((item, index) => (
+              <div key={index} className="grid-item">
+                <img
+                  src={letterShow[index] ? item.letter : bluecard}
+                  alt="blue"
+                  onClick={() => letterCardHandler(item, index)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
